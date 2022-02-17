@@ -29,6 +29,9 @@ pet_5 = Pet.create(name: 'Foster', breed: 'Aussie', age: 4, adoptable: true, she
 pet_6 = Pet.create(name: 'Billy', breed: 'Bloodhound', age: 2, adoptable: true, shelter_id: shelter_3.id)
 pet_7 = Pet.create(name: 'Blanca', breed: 'Blue Heeler', age: 3, adoptable: true, shelter_id: shelter_4.id)
 pet_8 = Pet.create(name: 'Steve', breed: 'Poodle', age: 1, adoptable: true, shelter_id: shelter_4.id)
+pet_9 = Pet.create(name: 'Ada', breed: 'Berner', age: 5, adoptable: true, shelter_id: shelter_4.id)
+pet_10 = Pet.create(name: 'Steve', breed: 'Poodle', age: 1, adoptable: true, shelter_id: shelter_4.id)
+pet_11 = Pet.create(name: 'Steve', breed: 'Poodle', age: 1, adoptable: true, shelter_id: shelter_4.id)
 
 PetApplication.create!(pet: pet_1, application: application_2)
 PetApplication.create!(pet: pet_2, application: application_2)

@@ -27,16 +27,25 @@ RSpec.describe 'applications show page' do
     pet_1 = Pet.create(name: 'Queso', breed: 'Boston Terrier', age: 5, adoptable: true, shelter_id: shelter_1.id)
     pet_2 = Pet.create(name: 'Gibblets', breed: 'French Bulldog', age: 3, adoptable: true, shelter_id: shelter_1.id)
 
+
+    # Add a Pet to an Application
+
+    # As a visitor
+    # When I visit an application's show page
     visit "/applications/#{application_1.id}"
     expect(page).to_not have_content('Queso')
-
-    fill_in(:search, with: 'Queso')
-    click_button("Search")
-
+    # And I search for a Pet by name
+    # within ("#pet_search-#{application_1.id}") do
+      fill_in(:search, with: 'Queso')
+      click_button("Search")
+    # end
+    # And I see the names Pets that match my search
+    # Then next to each Pet's name I see a button to "Adopt this Pet"
+    # When I click one of these buttons
     click_link("Adopt this Pet")
-
+    # Then I am taken back to the application show page
     expect(current_path).to eq("/applications/#{application_1.id}")
-
+    # And I see the Pet I want to adopt listed on this application
     expect(page).to have_content("Queso")
   end
 
@@ -53,16 +62,16 @@ RSpec.describe 'applications show page' do
     click_button("Search")
 
     click_link("Adopt this Pet")
-    # save_and_open_page
+
     fill_in(:description, with: 'Really REALLY good guy')
-    # save_and_open_page
+
     click_button("submit")
 
     expect(current_path).to eq("/applications/#{application_1.id}")
 
 
     expect(page).to_not have_content("In Progress")
-    # expect(page).to_not have_content('div.pet_search')
+
     expect(page).to have_content("Pending")
   end
 
@@ -82,11 +91,12 @@ RSpec.describe 'applications show page' do
     pet_1 = Pet.create(name: 'Queso', breed: 'Boston Terrier', age: 5, adoptable: true, shelter_id: shelter_1.id)
     pet_2 = Pet.create(name: 'Gibblets', breed: 'French Bulldog', age: 3, adoptable: true, shelter_id: shelter_1.id)
 
+    # As visitor when I visit an applications show page
     visit "/applications/#{application_1.id}"
-
+    # And I search for Pets by name
     fill_in :search, with: "que"
     click_on("Search")
-
+    # Then I see any pet whose name PARTIALLY matches my search
     expect(page).to have_content(pet_1.name)
     expect(page).to_not have_content(pet_2.name)
   end

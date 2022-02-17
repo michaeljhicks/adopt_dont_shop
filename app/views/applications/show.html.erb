@@ -9,12 +9,13 @@
 <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
 <% end  %>
 <p><%= @application.status %></p>
-
-<%= form_with url: "/applications/#{@application.id}", method: :get, local: true do |form| %>
-<%= form.label :search, "Add a Pet to This Application" %>
-<%= form.text_field :search %>
-<%= form.submit "Search" %>
-<% end %>
+<div id="pet_search-<%= application_1.id %>"
+  <%= form_with url: "/applications/#{@application.id}", method: :get, local: true do |form| %>
+    <%= form.label :search, "Add a Pet to This Application" %>
+    <%= form.text_field :search %>
+    <%= form.submit "Search" %>
+  <% end %>
+</div>
 
 <% if @pets.present? %>
   <% @pets.each do |pet| %>
@@ -22,6 +23,7 @@
   <%= link_to "Adopt this Pet", "/applications/#{@application.id}?add_pet=#{pet.id}" %>
   <% end %>
 <% end  %>
+
 <% if @application.pets.count > 0 && @application.status == "In Progress" %>
 <h4>What makes <%=@application.name %> a good fit?</h4>
 <%= form_with url: "/applications/#{@application.id}", method: :patch, local: true do |f| %>

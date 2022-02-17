@@ -13,7 +13,7 @@ class Pet < ApplicationRecord
     where(adoptable: true)
   end
 
-  def self.sorted(petname)
+  def self.sorted(petname) #change in to user_input' dev empathy
     where('lower(name) LIKE ?', "%#{petname.downcase}%")
   end
 end

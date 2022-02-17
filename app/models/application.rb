@@ -17,7 +17,10 @@ class Application < ApplicationRecord
   validates_presence_of :description
   validates_presence_of :status
 
-  def adopt(pet)
-
+  def pet_count # replace with line 26 app/show
+    pets.count
   end
+  # def adopt(pet)
+  #
+  # end
 end
