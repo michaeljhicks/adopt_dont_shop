@@ -12,8 +12,8 @@ Shelter.destroy_all
 VeterinaryOffice.destroy_all
 Veterinarian.destroy_all
 
-application_1 = Application.create(name: "Michael Hicks", address: "858 S Emerson St", city: "Dever", state: "CO", zipcode: 80211, description: "I am very reliable", status: "Rejceted")
-application_2 = Application.create(name: "Suzanne Roth", address: "9406 Oakmont Rd", city: "Albuquerque", state: "NM", zipcode: 87111, description: "Best dog mom ever!", status: "Accepted")
+application_1 = Application.create(name: "Michael Hicks", address: "858 S Emerson St", city: "Dever", state: "CO", zipcode: 80211, description: "I am very reliable", status: "Pending")
+application_2 = Application.create(name: "Suzanne Roth", address: "9406 Oakmont Rd", city: "Albuquerque", state: "NM", zipcode: 87111, description: "Best dog mom ever!", status: "Pending")
 application_3 = Application.create(name: "Ada Hicks", address: "4012 Tracy St NE", city: "Albuquerque", state: "NM", zipcode: 87111, description: "I'm actually a dog myself!", status: "Pending")
 
 shelter_1 = Shelter.create(name: 'El Dorado Shelter', city: 'Albuquerque, NM', foster_program: false, rank: 9)
